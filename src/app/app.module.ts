@@ -7,20 +7,24 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
-import { TeamsComponent } from './data/teams/teams.component';
-import { GamesComponent } from './data/games/games.component';
+import { GamesComponent } from './games/games.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { SidenavListComponent } from './navbar/sidenav-list/sidenav-list.component';
 import { ToolbarComponent } from './navbar/toolbar/toolbar.component';
+import { TeamsComponent } from './teams/teams.component';
+import { PastGamesComponent } from './games/past-games/past-games.component';
+import { UpcomingGamesComponent } from './games/upcoming-games/upcoming-games.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TeamsComponent,
     GamesComponent,
     WelcomeComponent,
     SidenavListComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    TeamsComponent,
+    PastGamesComponent,
+    UpcomingGamesComponent
   ],
   imports: [
     BrowserModule,

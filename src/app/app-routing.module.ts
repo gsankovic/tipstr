@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { WelcomeComponent } from './welcome/welcome.component';
-import { GamesComponent } from './data/games/games.component';
-import { TeamsComponent } from './data/teams/teams.component';
+import { GamesComponent } from './games/games.component';
+import { TeamsComponent } from './teams/teams.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
