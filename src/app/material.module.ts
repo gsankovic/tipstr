@@ -9,7 +9,8 @@ import {
     MatCardModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule 
+    MatInputModule, 
+    MatFormFieldControl
 } from '@angular/material';
 
 @NgModule({
