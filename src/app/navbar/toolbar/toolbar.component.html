@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <div>
+    <button mat-icon-button (click)="toggleSidenav()">
+      <mat-icon>arrow_drop_down_circle</mat-icon>
+    </button>
+  </div>
+  <div class="nav-logo">
+    <a routerLink="">tipstr</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="10px" class="nav-elements">
+      <li><a routerLink="/games">Games</a></li>
+      <li><a routerLink="/teams">Teams</a></li>
+    </ul>
+  </div>
+</mat-toolbar>

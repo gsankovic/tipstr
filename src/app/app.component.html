@@ -1,24 +1,9 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav role="navigation">
-    <p>Im the sidenav</p>
+    <app-sidenav-list (closeSidenav)="sidenav.close()"></app-sidenav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
-      <div>
-        <button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>dashboard</mat-icon>
-        </button>
-      </div>
-      <div class="nav-logo">
-        <a routerLink="">tipstr</a>
-      </div>
-      <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-        <ul fxLayout fxLayoutGap="10px" class="nav-elements">
-          <li><a routerLink="/games">Games</a></li>
-          <li><a routerLink="/teams">Teams</a></li>
-        </ul>
-      </div>
-    </mat-toolbar>
+    <app-toolbar (sidenavToggle)="sidenav.toggle()"></app-toolbar>
     <main>
       <router-outlet></router-outlet>
     </main>
