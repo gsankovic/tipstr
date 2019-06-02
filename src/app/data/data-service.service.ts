@@ -11,8 +11,40 @@ import{ Tip } from './tip';
 })
 export class DataServiceService {
 
+  currentYear = (new Date()).getFullYear();
+
   constructor(private http: HttpClient) { }
 
+  getPastGames() : Observable<Game[]> {
+   
+    return this.http.get('https://api.squiggle.com.au/?q=games;complete=!0;year=' + this.currentYear ).pipe(
+      map((data: any) => data.games.map((item: any) => new Game(
+        item.complete,
+        item.is_grand_final,
+        item.tz,
+        item.hbehinds,
+        item.ateam,
+        item.winnerteamid,
+        item.hgoals,
+        item.updated,
+        item.round,
+        item.is_final,
+        item.hscore,
+        item.abehinds,
+        item.winner,
+        item.ascore,
+        item.hteam,
+        item.ateamid,
+        item.venue,
+        item.hteamid,
+        item.agoals,
+        item.year,
+        item.date,
+        item.id
+      )))
+    ); 
+  }
+  
   getGames() : Observable<Game[]> {
    
     return this.http.get('https://api.squiggle.com.au/?q=games;round=1;year=2019').pipe(

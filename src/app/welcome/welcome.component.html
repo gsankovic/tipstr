@@ -1,12 +1,11 @@
 <h1>Welcome!</h1>
-<h2>Please Select Your Team Below</h2>
+<h3>Please Select Your Team Below</h3>
 
-
-<mat-form-field>
+<form (ngSubmit)="onTeamSelection(f)" #f="ngForm">
+<mat-form-field fxFlex="400px">
   <mat-label>Select Your Team</mat-label>
-  <mat-select [formControl]="teamControl" required>
-    <mat-option>--</mat-option>
-    <mat-option *ngFor="let team of teams" [value]="team.name">
+  <mat-select ngModel [formControl]="teamControl" required name="selectTeam">
+    <mat-option *ngFor="let team of teams" [value]="team.id">
       {{ team.name }}
     </mat-option>
   </mat-select>
@@ -14,5 +13,6 @@
     Please choose a team
   </mat-error>
 </mat-form-field>
+</form>
 
-<button mat-raised-button>Submit</button>
+<button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">GO</button>

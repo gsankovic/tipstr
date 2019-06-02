@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/data/data-service.service';
+import { Game } from '../../data/game';
 
 @Component({
   selector: 'app-past-games',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PastGamesComponent implements OnInit {
 
-  constructor() { }
+  games: Game[];
+
+  constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
+    this.getPastGames();
+  }
+
+  getPastGames(): void {
+    this.dataService.getPastGames().subscribe(temp => { this.games = temp; });
   }
 
 }
