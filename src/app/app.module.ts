@@ -18,6 +18,7 @@ import { TeamsComponent } from './teams/teams.component';
 import { PastGamesComponent } from './games/past-games/past-games.component';
 import { UpcomingGamesComponent } from './games/upcoming-games/upcoming-games.component';
 import { DataServiceService } from './data/data-service.service';
+import { FteamService } from './shared/fteam.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { DataServiceService } from './data/data-service.service';
     StorageServiceModule,
     HttpClientModule
   ],
-  providers: [DataServiceService],
+  providers: [DataServiceService, FteamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

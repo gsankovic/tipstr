@@ -4,15 +4,11 @@
 <form (ngSubmit)="onTeamSelection(f)" #f="ngForm">
 <mat-form-field fxFlex="400px">
   <mat-label>Select Your Team</mat-label>
-  <mat-select ngModel [formControl]="teamControl" required name="selectTeam">
+  <mat-select ngModel required name="selectTeam">
     <mat-option *ngFor="let team of teams" [value]="team.id">
       {{ team.name }}
     </mat-option>
   </mat-select>
-  <mat-error *ngIf="teamControl.hasError('required')">
-    Please choose a team
-  </mat-error>
 </mat-form-field>
-</form>
-
 <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">GO</button>
+</form>

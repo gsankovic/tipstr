@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataServiceService } from 'src/app/data/data-service.service';
+import { DataServiceService } from '../../data/data-service.service';
 import { Game } from '../../data/game';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-past-games',
@@ -8,7 +9,6 @@ import { Game } from '../../data/game';
   styleUrls: ['./past-games.component.css']
 })
 export class PastGamesComponent implements OnInit {
-
   games: Game[];
 
   constructor(private dataService: DataServiceService) { }
