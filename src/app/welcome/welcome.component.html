@@ -1,14 +1,26 @@
-<h1>Welcome!</h1>
-<h3>Please Select Your Team Below</h3>
+<div id="welcome-header" class="jumbotron text-center">
+  <h1>Welcome to tipstr!</h1>
+  <h5>Please Select Your Favourite Team Below</h5>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+
+    </div>
+    <div class="col-sm-4"></div>    
+  </div>
+</div>
+
 
 <form (ngSubmit)="onTeamSelection(f)" #f="ngForm">
-<mat-form-field fxFlex="400px">
-  <mat-label>Select Your Team</mat-label>
-  <mat-select ngModel required name="selectTeam">
-    <mat-option *ngFor="let team of teams" [value]="team.id">
-      {{ team.name }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-<button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">GO</button>
-</form>
+    <mat-form-field fxFlex="300px" fxLayout="column">
+      <mat-label>Select Your Team</mat-label>
+      <mat-select id="welcome-form" ngModel required name="selectTeam">
+        <mat-option *ngFor="let team of teams" [value]="team.id">
+          {{ team.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">GO</button>
+  </form>
