@@ -19,6 +19,7 @@ import { PastGamesComponent } from './games/past-games/past-games.component';
 import { UpcomingGamesComponent } from './games/upcoming-games/upcoming-games.component';
 import { DataServiceService } from './data/data-service.service';
 import { FteamService } from './shared/fteam.service';
+import { H2hComponent } from './h2h/h2h.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FteamService } from './shared/fteam.service';
     ToolbarComponent,
     TeamsComponent,
     PastGamesComponent,
-    UpcomingGamesComponent
+    UpcomingGamesComponent,
+    H2hComponent
   ],
   imports: [
     BrowserModule,

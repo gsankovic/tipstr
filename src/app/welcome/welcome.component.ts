@@ -3,6 +3,7 @@ import { DataServiceService } from '../data/data-service.service';
 import { Team } from '../data/team';
 import { NgForm } from '@angular/forms';
 import { FteamService } from '../shared/fteam.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -11,9 +12,10 @@ import { FteamService } from '../shared/fteam.service';
 })
 export class WelcomeComponent implements OnInit {
 
+  selectedTeam = false;
   teams:Team[];
 
-  constructor(private dataService: DataServiceService, private fteamService: FteamService) { }
+  constructor(private router: Router, private dataService: DataServiceService, private fteamService: FteamService) { }
 
   ngOnInit() {
     this.getTeams();
@@ -22,6 +24,7 @@ export class WelcomeComponent implements OnInit {
 
   onTeamSelection(form: NgForm) {
     this.fteamService.startFteam(form.value.selectTeam);
+    this.router.navigate(['/games']);
   }
 
   getTeams(): void {

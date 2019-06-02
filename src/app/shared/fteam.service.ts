@@ -18,7 +18,7 @@ export class FteamService {
       t => t.id === selectedId
     );
     this.teamChanged.next({ ...this.faveTeam });
-    console.log(this.faveTeam.name);
+    console.log(this.faveTeam.name)
   }
 
   getTeams(): void {

@@ -45,9 +45,9 @@ export class DataServiceService {
     ); 
   }
   
-  getGames() : Observable<Game[]> {
+  getUpcomingGames() : Observable<Game[]> {
    
-    return this.http.get('https://api.squiggle.com.au/?q=games;round=1;year=2019').pipe(
+    return this.http.get('https://api.squiggle.com.au/?q=games;complete=!100;year=' + this.currentYear).pipe(
       map((data: any) => data.games.map((item: any) => new Game(
         item.complete,
         item.is_grand_final,
