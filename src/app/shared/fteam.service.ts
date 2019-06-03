@@ -11,14 +11,13 @@ export class FteamService {
   teams: Team[];
   private faveTeam: Team;
 
-  constructor(private dataService: DataServiceService) { }
+  constructor(private dataService: DataServiceService) { 
+    this.getTeams();
+  }
 
   startFteam(selectedId: number) {
-    this.faveTeam = this.teams.find(
-      t => t.id === selectedId
-    );
+    this.faveTeam = this.teams.find(t => t.id === selectedId);
     this.teamChanged.next({ ...this.faveTeam });
-    console.log(this.faveTeam.name)
   }
 
   getTeams(): void {

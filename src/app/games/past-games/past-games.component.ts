@@ -12,7 +12,7 @@ import { FteamService } from '../../shared/fteam.service';
 export class PastGamesComponent implements OnInit {
   hasFaveTeam = false;
   games: Game[];
-  faveGames: Game[];
+  faveGames: Game[] = [];
   fteamSubscription: Subscription;
   fTeam: string;
 
@@ -21,9 +21,6 @@ export class PastGamesComponent implements OnInit {
   ngOnInit() {
     this.getSubscription();
     this.getPastGames();
-    this.faveGames = this.games.filter(
-      game => game.hteam === this.fTeam
-    );
   }
 
   getSubscription() {
@@ -36,6 +33,15 @@ export class PastGamesComponent implements OnInit {
 
   getPastGames(): void {
     this.dataService.getPastGames().subscribe(temp => { this.games = temp; });
+  }
+
+  getFTeamGames(fTeam: string, games: Game[]) {
+    for (var i = 0; i < this.games.length; i++) {
+      if (this.games[i].hteam === this.fTeam || this.games[i].ateam === this.fTeam) {
+        this.faveGames.push(this.games[i]);
+        console.log(this.games[i])
+      }
+    }
   }
 
 }

@@ -13,13 +13,12 @@ import { Router } from '@angular/router';
 export class WelcomeComponent implements OnInit {
 
   selectedTeam = false;
-  teams:Team[];
+  teams: Team[];
 
   constructor(private router: Router, private dataService: DataServiceService, private fteamService: FteamService) { }
 
   ngOnInit() {
     this.getTeams();
-    this.fteamService.getTeams();
   }
 
   onTeamSelection(form: NgForm) {
