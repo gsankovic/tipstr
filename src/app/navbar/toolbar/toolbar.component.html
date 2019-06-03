@@ -15,12 +15,10 @@
     </ul>
   </div>
 </mat-toolbar>
-<!--
-<mat-toolbar>
+<mat-toolbar *ngIf="hasFaveTeam" color="accent">
     <div fxFlex fxLayoutAlign="flex-end">
       <span class="toolbar-txt">
-        Favourite Team: 
+        <mat-icon>stars</mat-icon> {{ fTeam }} 
       </span>
     </div>
 </mat-toolbar>
--->

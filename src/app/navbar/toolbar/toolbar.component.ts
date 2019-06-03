@@ -1,7 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FteamService } from '../../shared/fteam.service';
-import { Team } from '../../data/team';
 
 @Component({
   selector: 'app-toolbar',
@@ -12,7 +11,7 @@ export class ToolbarComponent implements OnInit {
   @Output() sidenavToggle = new EventEmitter<void>();
   hasFaveTeam = false;
   fteamSubscription: Subscription;
-  team: Team;
+  fTeam: string;
 
   constructor(private fteamService: FteamService) { }
 
@@ -23,7 +22,8 @@ export class ToolbarComponent implements OnInit {
   getSubscription() {
     this.fteamSubscription = this.fteamService.teamChanged.subscribe(
       team => {
-        this.team = team;
+        this.fTeam = team.name;
+        this.hasFaveTeam = true;
       }
     );
   }

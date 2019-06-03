@@ -12,6 +12,7 @@ import { FteamService } from '../../shared/fteam.service';
 export class PastGamesComponent implements OnInit {
   hasFaveTeam = false;
   games: Game[];
+  faveGames: Game[];
   fteamSubscription: Subscription;
   fTeam: string;
 
@@ -20,6 +21,9 @@ export class PastGamesComponent implements OnInit {
   ngOnInit() {
     this.getSubscription();
     this.getPastGames();
+    this.faveGames = this.games.filter(
+      game => game.hteam === this.fTeam
+    );
   }
 
   getSubscription() {
