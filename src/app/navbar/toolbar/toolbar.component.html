@@ -17,7 +17,9 @@
 </mat-toolbar>
 <mat-toolbar *ngIf="hasFaveTeam" color="accent">
     <div fxFlex fxLayoutAlign="flex-end">
-      <mat-icon>stars</mat-icon>
-      <span class="toolbar-txt">{{ fTeam }}</span>
+      <section fxLayoutAlign="center center">
+        <mat-icon>favorite</mat-icon>
+        <span class="toolbar-txt">{{ fTeam }}</span>
+      </section>
     </div>
 </mat-toolbar>
