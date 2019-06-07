@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Ladder } from './ladder';
 import { Game } from './game';
-import { FteamService } from '../shared/fteam.service';
+import { FteamService } from './fteam.service';
 import { Team } from './team';
 import { DataServiceService } from './data-service.service';
 

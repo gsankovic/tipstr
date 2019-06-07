@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { FteamService } from '../../shared/fteam.service';
+import { FteamService } from '../../data/fteam.service';
 import { Team } from '../../data/team';
 
 @Component({

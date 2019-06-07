@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data/data-service.service';
 import { Team } from '../data/team';
 import { NgForm } from '@angular/forms';
-import { FteamService } from '../shared/fteam.service';
+import { FteamService } from '../data/fteam.service';
 import { Router } from '@angular/router';
 
 @Component({

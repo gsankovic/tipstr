@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Team } from '../data/team';
-import { DataServiceService } from '../data/data-service.service';
+import { Team } from './team';
+import { DataServiceService } from './data-service.service';
 import { Subject } from 'rxjs';
 
 @Injectable({
