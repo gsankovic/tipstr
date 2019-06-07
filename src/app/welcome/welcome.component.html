@@ -13,14 +13,14 @@
   </div>
   
 
-<form fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="onTeamSelection(f)" #f="ngForm">
+<form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" (ngSubmit)="onTeamSelection(f)" #f="ngForm">
   <mat-form-field>
-    <mat-label>Select Your Team</mat-label>
-    <mat-select id="welcome-form" ngModel required name="selectTeam">
+    <mat-select id="welcome-form" ngModel required name="selectTeam" placeholder="Your Team">
       <mat-option *ngFor="let team of teams" [value]="team.id">
         {{ team.name }}
       </mat-option>
     </mat-select>
+    <mat-hint>Please select your favourite team</mat-hint>
   </mat-form-field>
   <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">GO</button>
 </form>
