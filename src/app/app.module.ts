@@ -8,6 +8,7 @@ import { StorageServiceModule } from 'angular-webstorage-service';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { WelcomeGuard } from './welcome/welcome.guard';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { GamesComponent } from './games/games.component';
@@ -45,7 +46,7 @@ import { LadderComponent } from './ladder/ladder.component';
     StorageServiceModule,
     HttpClientModule
   ],
-  providers: [DataServiceService, FteamService, LadderService],
+  providers: [WelcomeGuard, DataServiceService, FteamService, LadderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

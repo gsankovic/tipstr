@@ -10,6 +10,7 @@ export class FteamService {
   teamChanged = new Subject<Team>();
   teams: Team[];
   private faveTeam: Team;
+  private faveTeamSelected = false;
 
   constructor(private dataService: DataServiceService) { 
     this.getTeams();
@@ -18,9 +19,14 @@ export class FteamService {
   startFteam(selectedId: number) {
     this.faveTeam = this.teams.find(t => t.id === selectedId);
     this.teamChanged.next({ ...this.faveTeam });
+    this.faveTeamSelected = true;
   }
 
   getTeams(): void {
     this.dataService.getTeams().subscribe(temp => { this.teams = temp; });
+  }
+
+  getFaveTeamState() {
+    return this.faveTeamSelected;
   }
 }
