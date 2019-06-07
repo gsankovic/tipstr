@@ -2,43 +2,43 @@
     <mat-card *ngFor="let game of games">
       <div class="container-fluid">
         <div class="row">
-          <div id="round-text" class="col-sm-12">
+          <div id="round-text" class="col-12">
             Round {{ game.round }}
           </div>
         </div>
         <div class="row">
-          <div class="col-sm-1"></div>
-          <div class="col-sm-2 text-right my-auto">
+          <div class="col-1"></div>
+          <div class="col-2 text-right my-auto">
             {{ game.hteam }}
           </div>
-          <div class="col-sm-2 text-right my-auto score">
+          <div class="col-2 text-right my-auto score">
             {{ game.hscore }}
           </div>
-          <div class="col-sm-2 text-center my-auto score-vs">
+          <div class="col-2 text-center my-auto score-vs">
             VS
           </div>
-          <div class="col-sm-2 text-left my-auto score">
+          <div class="col-2 text-left my-auto score">
             {{ game.ascore }}
           </div>
-          <div class="col-sm-2 text-left my-auto">
+          <div class="col-2 text-left my-auto">
             {{ game.ateam }}
           </div>
-          <div class="col-sm-1"></div>
+          <div class="col-1"></div>
         </div>
         <div class="row">
-            <div class="col-sm-1"></div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2 text-right my-auto sbreakdown">
+            <div class="col-1"></div>
+            <div class="col-2"></div>
+            <div class="col-2 text-right my-auto sbreakdown">
               {{ game.hgoals }}.{{ game.hbehinds }}
             </div>
-            <div class="col-sm-2 text-center my-auto sbreakdown">
+            <div class="col-2 text-center my-auto sbreakdown">
               {{ game.venue }}
             </div>
-            <div class="col-sm-2 text-left my-auto sbreakdown">
+            <div class="col-2 text-left my-auto sbreakdown">
               {{ game.agoals }}.{{ game.abehinds }}
             </div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-1"></div>
+            <div class="col-2"></div>
+            <div class="col-1"></div>
           </div>
       </div>
     </mat-card>
