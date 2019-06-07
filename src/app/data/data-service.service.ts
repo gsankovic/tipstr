@@ -1,23 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Team } from './team';
 import { Game } from './game';
-import{ Tip } from './tip';
+import { Tip } from './tip';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataServiceService {
   
+  games: Game[];
+  
   currentYear = (new Date()).getFullYear();
 
   constructor(private http: HttpClient) { }
 
+  setGames(newGames: Game[]): void {
+    this.games = newGames;
+  }
+
   getPastGames() : Observable<Game[]> {
-   
-    return this.http.get('https://api.squiggle.com.au/?q=games;complete=!0;year=' + this.currentYear ).pipe(
+    return this.games == null ? this.http.get('https://api.squiggle.com.au/?q=games;complete=!0;year=' + this.currentYear ).pipe(
       map((data: any) => data.games.map((item: any) => new Game(
         item.complete,
         item.is_grand_final,
@@ -42,7 +47,7 @@ export class DataServiceService {
         item.date,
         item.id
       )))
-    ); 
+    ) : of(this.games); 
   }
   
   getUpcomingGames() : Observable<Game[]> {
