@@ -1,3 +1,21 @@
-<p>
-  ladder works!
-</p>
+
+<mat-table [dataSource]="dataSource">
+  
+  <ng-container matColumnDef="logo">
+    <mat-header-cell *matHeaderCellDef>Logo</mat-header-cell>
+    <mat-cell *matCellDef="let element"><img class="logo-size" src="https://squiggle.com.au/{{ element.logo }}"></mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.id | number }}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="dataColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: dataColumns"></mat-row>
+</mat-table>

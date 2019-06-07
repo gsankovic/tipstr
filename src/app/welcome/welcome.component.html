@@ -17,7 +17,7 @@
   <mat-form-field>
     <mat-select id="welcome-form" ngModel required name="selectTeam" placeholder="Your Team">
       <mat-option *ngFor="let team of teams" [value]="team.id">
-        {{ team.name }}
+        <img class="logo-size" src="https://squiggle.com.au/{{ team.logo }}"> {{ team.name }}
       </mat-option>
     </mat-select>
     <mat-hint>Please select your favourite team</mat-hint>

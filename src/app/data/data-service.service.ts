@@ -11,6 +11,7 @@ import { Tip } from './tip';
 })
 export class DataServiceService {
   
+  pastGames: Game[];
   games: Game[];
   
   currentYear = (new Date()).getFullYear();
