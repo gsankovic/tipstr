@@ -1,3 +1,7 @@
 #welcome-header {
     font-family: "Montserrat", sans-serif;
 }
+
+mat-form-field { 
+    width: 350px;
+}

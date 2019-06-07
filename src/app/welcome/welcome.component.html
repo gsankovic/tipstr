@@ -12,15 +12,15 @@
     </div>
   </div>
   
-  
-  <form (ngSubmit)="onTeamSelection(f)" #f="ngForm">
-      <mat-form-field fxFlex="300px" fxLayout="column">
-        <mat-label>Select Your Team</mat-label>
-        <mat-select id="welcome-form" ngModel required name="selectTeam">
-          <mat-option *ngFor="let team of teams" [value]="team.id">
-            {{ team.name }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">GO</button>
-    </form>
+
+<form fxLayout="column" fxLayoutAlign="center center" (ngSubmit)="onTeamSelection(f)" #f="ngForm">
+  <mat-form-field>
+    <mat-label>Select Your Team</mat-label>
+    <mat-select id="welcome-form" ngModel required name="selectTeam">
+      <mat-option *ngFor="let team of teams" [value]="team.id">
+        {{ team.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="accent" [disabled]="f.invalid">GO</button>
+</form>
