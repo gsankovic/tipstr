@@ -7,7 +7,7 @@
   <div class="nav-logo">
     <a routerLink="">tipstr</a>
   </div>
-  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs *ngIf="hasFaveTeam">
     <ul fxLayout fxLayoutGap="10px" class="nav-elements">
       <li><a routerLink="/games">Games</a></li>
       <li><a routerLink="/ladder">Ladder</a></li>

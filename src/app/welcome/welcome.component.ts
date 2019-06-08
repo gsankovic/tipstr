@@ -11,7 +11,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-
   selectedTeam = false;
   teams: Team[];
 
@@ -19,7 +18,6 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
     this.getTeams();
-    this.dataService.getTips();
   }
 
   onTeamSelection(form: NgForm) {
