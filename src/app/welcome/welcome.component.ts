@@ -19,6 +19,7 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
     this.getTeams();
+    this.dataService.getTips();
   }
 
   onTeamSelection(form: NgForm) {

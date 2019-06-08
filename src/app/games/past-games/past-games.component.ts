@@ -10,9 +10,7 @@ import { Team } from '../../data/team';
   styleUrls: ['./past-games.component.css']
 })
 export class PastGamesComponent implements OnInit {
-
   fTeam: Team;
-
   games: Game[];
   faveGames: Game[] = [];
 
@@ -23,16 +21,16 @@ export class PastGamesComponent implements OnInit {
     this.getPastGames();
   }
 
-  setGames(newGames: Game[]): void {
+  setPastGames(newGames: Game[]): void {
     this.games = newGames;
-    this.onSetGames();
+    this.onSetPastGames();
   }
 
   getPastGames(): void {
-    this.dataService.getPastGames().subscribe(temp => { this.setGames(temp); });
+    this.dataService.getPastGames().subscribe(temp => { this.setPastGames(temp); });
   }
 
-  onSetGames(): void {
+  onSetPastGames(): void {
     for (var i in this.games) {
       if (this.games[i].hteamid == this.fTeam.id || this.games[i].ateamid == this.fTeam.id) {
         this.faveGames.push(this.games[i]);

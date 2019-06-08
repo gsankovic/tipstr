@@ -1,43 +1,59 @@
-<section class="upcoming-games" fxLayout="column" fxLayoutGap="20px">
-    <mat-card *ngFor="let game of games">
+<section class="upcoming-games" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <mat-card>
+      <div class="container-fluid">
+        <div class="row">
+          <div id="round-text" class="col-6 text-center">
+            HOME
+          </div>
+          <div id="round-text" class="col-6 text-center">
+            AWAY
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  
+    <mat-card *ngFor="let game of faveGames">
       <div class="container-fluid">
         <div class="row">
           <div id="round-text" class="col-12">
-            Round {{ game.round }}
+            Round {{ game.round }} - {{ game.date | date }}
           </div>
         </div>
+
+        <div class="row">
+          <div class="col-3"></div>
+          <div class="col-2"></div>
+          <div id="round-text" class="col-2 text-center my-auto">
+            ODDS
+          </div>
+          <div class="col-2"></div>
+          <div class="col-3"></div>
+        </div>
+
         <div class="row">
           <div class="col-1"></div>
-          <div class="col-2 text-right my-auto">
+          <div id="round-text" class="col-4 text-right my-auto">
             {{ game.hteam }}
-          </div>
-          <div class="col-2 text-right my-auto score">
-            {{ game.hscore }}
           </div>
           <div class="col-2 text-center my-auto score-vs">
             VS
           </div>
-          <div class="col-2 text-left my-auto score">
-            {{ game.ascore }}
-          </div>
-          <div class="col-2 text-left my-auto">
+          <div id="round-text" class="col-4 text-left my-auto">
             {{ game.ateam }}
           </div>
           <div class="col-1"></div>
         </div>
         <div class="row">
             <div class="col-1"></div>
-            <div class="col-2"></div>
-            <div class="col-2 text-right my-auto sbreakdown">
-              {{ game.hgoals }}.{{ game.hbehinds }}
+            <div class="col-4 text-right my-auto sbreakdown">
+              Prediction: {{ game.tip }}
             </div>
             <div class="col-2 text-center my-auto sbreakdown">
-              {{ game.venue }}
+              {{ game.venue }} <br> @ {{ game.date | date: 'shortTime' }}
             </div>
-            <div class="col-2 text-left my-auto sbreakdown">
-              {{ game.agoals }}.{{ game.abehinds }}
+            <div class="col-4 text-left my-auto sbreakdown">
+              {{ game.fteam }} to win: {{ game.confidence }}%
             </div>
-            <div class="col-2"></div>
             <div class="col-1"></div>
           </div>
       </div>
