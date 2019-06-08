@@ -29,4 +29,8 @@ export class FteamService {
   getFaveTeamState() {
     return this.faveTeamSelected;
   }
+
+  getFaveTeam() {
+    return { ...this.faveTeam };
+  }
 }

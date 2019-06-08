@@ -18,10 +18,6 @@ export class DataServiceService {
 
   constructor(private http: HttpClient) { }
 
-  setGames(newGames: Game[]): void {
-    this.games = newGames;
-  }
-
   getPastGames() : Observable<Game[]> {
     return this.games == null ? this.http.get('https://api.squiggle.com.au/?q=games;complete=!0;year=' + this.currentYear ).pipe(
       map((data: any) => data.games.map((item: any) => new Game(

@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataServiceService } from '../../data/data-service.service';
 import { Game } from '../../data/game';
-import { Subscription } from 'rxjs';
 import { FteamService } from '../../data/fteam.service';
+import { Team } from '../../data/team';
 
 @Component({
   selector: 'app-past-games',
@@ -10,36 +10,32 @@ import { FteamService } from '../../data/fteam.service';
   styleUrls: ['./past-games.component.css']
 })
 export class PastGamesComponent implements OnInit {
-  hasFaveTeam = false;
+
+  fTeam: Team;
+
   games: Game[];
   faveGames: Game[] = [];
-  fteamSubscription: Subscription;
-  fTeam: string;
 
-  constructor(private dataService: DataServiceService, private fteamService: FteamService) { }
+  constructor(private fteamService: FteamService, private dataService: DataServiceService) { }
 
   ngOnInit() {
-    this.getSubscription();
+    this.fTeam = this.fteamService.getFaveTeam();
     this.getPastGames();
   }
 
-  getSubscription() {
-    this.fteamSubscription = this.fteamService.teamChanged.subscribe(
-      team => {
-          this.fTeam = team.name;
-      }
-    );
+  setGames(newGames: Game[]): void {
+    this.games = newGames;
+    this.onSetGames();
   }
 
   getPastGames(): void {
-    this.dataService.getPastGames().subscribe(temp => { this.games = temp; });
+    this.dataService.getPastGames().subscribe(temp => { this.setGames(temp); });
   }
 
-  getFTeamGames(fTeam: string, games: Game[]) {
-    for (var i = 0; i < this.games.length; i++) {
-      if (this.games[i].hteam === this.fTeam || this.games[i].ateam === this.fTeam) {
+  onSetGames(): void {
+    for (var i in this.games) {
+      if (this.games[i].hteamid == this.fTeam.id || this.games[i].ateamid == this.fTeam.id) {
         this.faveGames.push(this.games[i]);
-        console.log(this.games[i])
       }
     }
   }
