@@ -11,9 +11,29 @@
     <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="id">
-    <mat-header-cell *matHeaderCellDef>ID</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.id | number }}</mat-cell>
+  <ng-container matColumnDef="wpoints">
+    <mat-header-cell *matHeaderCellDef>Points For</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.wpoints | number }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="lpoints">
+    <mat-header-cell *matHeaderCellDef>Points Against</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.lpoints | number }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="wtally">
+    <mat-header-cell *matHeaderCellDef>Wins</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.wtally | number }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="ltally">
+    <mat-header-cell *matHeaderCellDef>Losses</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.ltally | number }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="wlpercent">
+    <mat-header-cell *matHeaderCellDef>Percentage</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.wlpercent | number }}</mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="dataColumns"></mat-header-row>

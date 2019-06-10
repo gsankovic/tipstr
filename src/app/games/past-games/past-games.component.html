@@ -1,4 +1,4 @@
-<section class="past-games" fxLayout="column" fxLayoutGap="20px">
+<section class="past-games" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
   
   <mat-card>
     <div class="container-fluid">
@@ -20,9 +20,19 @@
           Round {{ game.round }} - {{ game.date | date }}
         </div>
       </div>
+
       <div class="row">
-        <div class="col-1"></div>
-        <div class="col-2 text-right my-auto">
+        <div class="col-3"></div>
+        <div class="col-2"></div>
+        <div id="round-text" class="col-2 text-center my-auto">
+          SCORE
+        </div>
+        <div class="col-2"></div>
+        <div class="col-3"></div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 text-right my-auto">
           {{ game.hteam }}
         </div>
         <div class="col-2 text-right my-auto score">
@@ -34,10 +44,9 @@
         <div class="col-2 text-left my-auto score">
           {{ game.ascore }}
         </div>
-        <div class="col-2 text-left my-auto">
+        <div class="col-3 text-left my-auto">
           {{ game.ateam }}
         </div>
-        <div class="col-1"></div>
       </div>
       <div class="row">
           <div class="col-1"></div>

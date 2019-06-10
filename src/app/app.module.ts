@@ -19,7 +19,6 @@ import { PastGamesComponent } from './games/past-games/past-games.component';
 import { UpcomingGamesComponent } from './games/upcoming-games/upcoming-games.component';
 import { DataServiceService } from './data/data-service.service';
 import { FteamService } from './data/fteam.service';
-import { LadderService } from './data/ladder.service';
 import { H2hComponent } from './h2h/h2h.component';
 import { LadderComponent } from './ladder/ladder.component';
 
@@ -46,7 +45,7 @@ import { LadderComponent } from './ladder/ladder.component';
     StorageServiceModule,
     HttpClientModule
   ],
-  providers: [WelcomeGuard, DataServiceService, FteamService, LadderService],
+  providers: [WelcomeGuard, DataServiceService, FteamService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
