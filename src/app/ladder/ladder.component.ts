@@ -13,7 +13,7 @@ import { FteamService } from '../data/fteam.service';
   styleUrls: ['./ladder.component.css']
 })
 export class LadderComponent implements OnInit {
-  dataColumns = ['logo', 'name', 'wpoints', 'lpoints', 'wtally', 'ltally', 'wlpercent'];
+  dataColumns = ['logo', 'name', 'rank', 'wpoints', 'lpoints', 'wtally', 'ltally', 'wlpercent'];
   dataSource = new MatTableDataSource<Ladder>();
 
   fTeam: Team;
@@ -77,6 +77,27 @@ export class LadderComponent implements OnInit {
         this.ladder.push(new Ladder(this.teams[x].name, this.teams[x].abbrev, this.teams[x].id, this.teams[x].logo, wPoints, lPoints, wTally, lTally, wlPercent))
         wPoints = lPoints = wTally = lTally = wlPercent = 0;
       }
+      this.ladder.sort(function (a, b) {
+        const aTally = a.wtally;
+        const bTally = b.wtally;
+        const aPercent = a.wlpercent;
+        const bPercent = b.wlpercent;
+      
+        let comparison = 0;
+        if (aTally < bTally) {
+          comparison = 1;
+        } else if (aTally > bTally) {
+          comparison = -1;
+        } else if (aTally == bTally) {
+          if (aPercent < bPercent) {
+            comparison = 1;
+          } else if (aPercent > bPercent) {
+            comparison = -1;
+          }
+        }
+        return comparison;
+      });
+
       this.dataSource.data = this.ladder;
     }
   }

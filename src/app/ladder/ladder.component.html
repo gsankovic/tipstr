@@ -1,6 +1,6 @@
 
 <mat-table [dataSource]="dataSource">
-  
+
   <ng-container matColumnDef="logo">
     <mat-header-cell *matHeaderCellDef>Logo</mat-header-cell>
     <mat-cell *matCellDef="let element"><img class="logo-size" src="https://squiggle.com.au/{{ element.logo }}"></mat-cell>
@@ -9,6 +9,11 @@
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
     <mat-cell *matCellDef="let element">{{ element.name }}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="rank">
+    <mat-header-cell *matHeaderCellDef>Rank</mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="wpoints">
@@ -33,7 +38,7 @@
 
   <ng-container matColumnDef="wlpercent">
     <mat-header-cell *matHeaderCellDef>Percentage</mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.wlpercent | number }}</mat-cell>
+    <mat-cell *matCellDef="let element">{{ element.wlpercent | number }}%</mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="dataColumns"></mat-header-row>
