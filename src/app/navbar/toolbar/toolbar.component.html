@@ -16,10 +16,22 @@
   </div>
 </mat-toolbar>
 <mat-toolbar *ngIf="hasFaveTeam" color="accent">
+    
+  <form *ngIf="headroute">
+    <mat-form-field>
+      <mat-select ngModel required name="selectRivalTeam" placeholder="Rival Team">
+        <mat-option *ngFor="let team of teams" [value]="team.id">
+          <img class="logo-size" src="https://squiggle.com.au/{{ team.logo }}"> {{ team.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>  
+
     <div fxFlex fxLayoutAlign="flex-end">
       <section fxLayoutAlign="center center">
         <mat-icon>favorite</mat-icon>
         <span class="toolbar-txt">{{ fTeam.name }}</span>
       </section>
     </div>
+
 </mat-toolbar>

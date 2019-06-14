@@ -11,6 +11,7 @@ import { Team } from '../../data/team';
 export class ToolbarComponent implements OnInit {
   @Output() sidenavToggle = new EventEmitter<void>();
   hasFaveTeam = false;
+  headroute = false;
   fteamSubscription: Subscription;
   fTeam: Team;
 
